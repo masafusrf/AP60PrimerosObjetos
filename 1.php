@@ -98,9 +98,53 @@
     $cuenta1= new CuentaBancaria("Maria ", 500);
     $cuenta1->depositar(100);
     $cuenta1->retirar(200);
-    echo $cuenta1-> getSaldo();
+    echo $cuenta1-> getSaldo() . "<br>";
 
 
 /////////////////////////////////////////////////
+
+class Persona{
+    private $nombre;
+    private $edad;
+
+    public function __construct($nombre, $edad){
+        $this->nombre= $nombre;
+        $this->edad= $edad;
+    }
+
+    public function __destruct(){
+
+    }
+
+    public function getNombre(){
+        return $this->nombre;
+    }
+
+    public function getEdad(){
+        return $this->edad;
+    }
+
+    public function setNombre($nombre){
+        if (!isset($nombre) || $nombre == "") {
+            echo "Se debe insertar nombre. <br>";
+        } else {
+            $this->nombre= $nombre;
+        }
+        
+    }
+
+    public function setEdad($edad){
+        if ($edad < 0 || $edad > 120) {
+            echo "La edad no entra dentro del rango.<br>";
+        } else {
+            $this->edad= $edad;
+        }
+        
+    }
+}
+
+    $persona1= new Persona("Mabel", 26);
+    echo $persona1->getEdad() . "<br>";
+    echo $persona1->getNombre() . "<br>";
 
 ?>
